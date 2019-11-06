@@ -111,7 +111,7 @@
                         <outlet property="loginTextField" destination="x1o-sr-vlz" id="Heb-Em-wzy"/>
                         <outlet property="passwordTextField" destination="Sc4-CJ-pqK" id="QL5-Am-Qng"/>
                         <outlet property="scrollView" destination="fVT-Dk-vMW" id="zr0-mD-HV8"/>
-                        <segue destination="3He-5l-Pjh" kind="show" identifier="Login Segue" id="Ygs-Ng-zKI"/>
+                        <segue destination="3He-5l-Pjh" kind="presentation" identifier="Login Segue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Ygs-Ng-zKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,7 +123,7 @@
             <objects>
                 <tableViewController id="MA4-1o-gaR" customClass="GroupController" customModule="VK_App_New" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4XO-Zc-FrS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -168,6 +168,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="8Dw-Tx-snf">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ddX-Cs-KRu">
+                            <connections>
+                                <action selector="logoutButtonGroup:" destination="MA4-1o-gaR" id="wbn-p2-iR6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q7A-dc-EV0">
                             <connections>
                                 <segue destination="1Cb-iy-W1l" kind="show" identifier="Show Add Group" id="b3i-Ut-Tiu"/>
@@ -184,11 +189,11 @@
             <objects>
                 <viewController id="1Cb-iy-W1l" customClass="AllGroupController" customModule="VK_App_New" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9t-qO-mo7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vmY-Dy-cpG">
-                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BasicGroupCell" textLabel="PPx-Wk-bVR" imageView="Dt4-ke-koa" style="IBUITableViewCellStyleDefault" id="rhE-1w-RrA">
@@ -263,7 +268,7 @@
                     <tabBarItem key="tabBarItem" title="Groups" image="person.2" catalog="system" selectedImage="person.2" id="hY4-JZ-p8R"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v26-vr-Add">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -282,7 +287,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="person.fill" catalog="system" selectedImage="person.fill" id="vE6-ti-oOD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m2t-Rs-aHK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -299,7 +304,7 @@
             <objects>
                 <tableViewController id="5h0-Mh-FHd" customClass="UsersController" customModule="VK_App_New" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OpK-sT-gAx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -345,7 +350,13 @@
                             <outlet property="delegate" destination="5h0-Mh-FHd" id="HkS-qh-Eef"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kE7-UH-ZoS"/>
+                    <navigationItem key="navigationItem" id="kE7-UH-ZoS">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="SpA-vh-afN">
+                            <connections>
+                                <action selector="logoutButton:" destination="5h0-Mh-FHd" id="i43-12-kuc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ba-4O-VtK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,7 +367,7 @@
             <objects>
                 <collectionViewController id="Hui-ti-wBe" customClass="UsersDetailController" customModule="VK_App_New" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="h7n-5U-ehr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gmA-Va-qbx">

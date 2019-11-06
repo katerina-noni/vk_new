@@ -65,4 +65,8 @@ class GroupController: UITableViewController {
         }
     }
     
+    @IBAction func logoutButtonGroup(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -54,5 +54,9 @@ class UsersController: UITableViewController {
              destinationVC.title = usersname
          }
      }
-
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
