@@ -14,6 +14,9 @@
 		C405E720236DBAB00063EAAD /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405E71F236DBAB00063EAAD /* Users.swift */; };
 		C405E722236DBFB90063EAAD /* UsersDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405E721236DBFB90063EAAD /* UsersDetailController.swift */; };
 		C405E724236DBFF30063EAAD /* UsersDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405E723236DBFF30063EAAD /* UsersDetailCell.swift */; };
+		C4213DB72376DB4800E70946 /* AvatarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4213DB62376DB4800E70946 /* AvatarControl.swift */; };
+		C4213DB92376DBB300E70946 /* AvatarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4213DB82376DBB300E70946 /* AvatarController.swift */; };
+		C4213DBB2376F7F100E70946 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4213DBA2376F7F100E70946 /* LikeControl.swift */; };
 		C453018B236B456E001D1D6C /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453018A236B456E001D1D6C /* GroupController.swift */; };
 		C453018E236B45E4001D1D6C /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453018D236B45E4001D1D6C /* GroupCell.swift */; };
 		C457BFF8235E1AE2008ACCD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457BFF7235E1AE2008ACCD0 /* AppDelegate.swift */; };
@@ -33,6 +36,9 @@
 		C405E71F236DBAB00063EAAD /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C405E721236DBFB90063EAAD /* UsersDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailController.swift; sourceTree = "<group>"; };
 		C405E723236DBFF30063EAAD /* UsersDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailCell.swift; sourceTree = "<group>"; };
+		C4213DB62376DB4800E70946 /* AvatarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarControl.swift; sourceTree = "<group>"; };
+		C4213DB82376DBB300E70946 /* AvatarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarController.swift; sourceTree = "<group>"; };
+		C4213DBA2376F7F100E70946 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		C453018A236B456E001D1D6C /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		C453018D236B45E4001D1D6C /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		C457BFF4235E1AE2008ACCD0 /* VK App New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App New.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +89,7 @@
 				C405E717236D9DBE0063EAAD /* AllGroupController.swift */,
 				C405E71B236DB93E0063EAAD /* UsersController.swift */,
 				C405E721236DBFB90063EAAD /* UsersDetailController.swift */,
+				C4213DB82376DBB300E70946 /* AvatarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,6 +109,8 @@
 				C453018D236B45E4001D1D6C /* GroupCell.swift */,
 				C405E71D236DB9A30063EAAD /* UsersCell.swift */,
 				C405E723236DBFF30063EAAD /* UsersDetailCell.swift */,
+				C4213DB62376DB4800E70946 /* AvatarControl.swift */,
+				C4213DBA2376F7F100E70946 /* LikeControl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,8 +217,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4213DB72376DB4800E70946 /* AvatarControl.swift in Sources */,
 				C453018E236B45E4001D1D6C /* GroupCell.swift in Sources */,
+				C4213DBB2376F7F100E70946 /* LikeControl.swift in Sources */,
 				C457BFFC235E1AE2008ACCD0 /* LoginControler.swift in Sources */,
+				C4213DB92376DBB300E70946 /* AvatarController.swift in Sources */,
 				C457BFF8235E1AE2008ACCD0 /* AppDelegate.swift in Sources */,
 				C405E71A236DA7FA0063EAAD /* Group.swift in Sources */,
 				C405E71E236DB9A30063EAAD /* UsersCell.swift in Sources */,

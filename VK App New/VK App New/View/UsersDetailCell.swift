@@ -11,4 +11,6 @@ import UIKit
 class UsersDetailCell: UICollectionViewCell {
     
     @IBOutlet var detailImageView: UIImageView!
+    
+    @IBOutlet weak var likeControl: LikeControl!
 }

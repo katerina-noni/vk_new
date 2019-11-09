@@ -14,11 +14,12 @@ class UsersDetailController: UICollectionViewController {
 
     private let photos = [
         UIImage(named: "shkpj"),
-        UIImage(named: "1089093"),
-        UIImage(named: "391073"),
-        UIImage(named: "769991")
+        UIImage(named: "1089093")
     ]
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -34,8 +35,7 @@ class UsersDetailController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsersDetailCell", for: indexPath) as? UsersDetailCell else { preconditionFailure() }
     
         cell.detailImageView.image = photos[indexPath.item]
-    
+        
         return cell
     }
-
 }
