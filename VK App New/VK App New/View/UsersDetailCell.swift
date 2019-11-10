@@ -12,5 +12,9 @@ class UsersDetailCell: UICollectionViewCell {
     
     @IBOutlet var detailImageView: UIImageView!
     
-    @IBOutlet weak var likeControl: LikeControl!
+    @IBOutlet var likeControl: LikeControl!
+    
+    public func configureLikeControl(likes count: Int, isLikedByUser: Bool){
+        likeControl.configure(likes: count, isLikedByUser: isLikedByUser)
+    }
 }

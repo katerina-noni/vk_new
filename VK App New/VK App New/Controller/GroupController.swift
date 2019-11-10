@@ -14,8 +14,7 @@ class GroupController: UITableViewController {
         Group(image: UIImage(named: "garage")!, name: "Group 1"),
         Group(image: UIImage(named: "11")!, name: "Group 2"),
         Group(image: UIImage(named: "1089093")!, name: "Group 3"),
-        Group(image: UIImage(named: "unnamed")!, name: "Group 4"),
-        Group(image: UIImage(named: "icon")!, name: "Group 5")
+        Group(image: UIImage(named: "icon")!, name: "Group 4")
     ]
     
 

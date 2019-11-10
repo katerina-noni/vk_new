@@ -36,6 +36,10 @@ class UsersDetailController: UICollectionViewController {
     
         cell.detailImageView.image = photos[indexPath.item]
         
+        let count = Int.random(in: 5...500)
+        let isLiked = Bool.random()
+        cell.configureLikeControl(likes: count, isLikedByUser: isLiked)
+
         return cell
     }
 }

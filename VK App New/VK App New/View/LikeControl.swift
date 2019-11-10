@@ -9,7 +9,8 @@
 import UIKit
 @IBDesignable
 class LikeControl: UIControl {
-   @IBInspectable var isLiked: Bool = false
+    @IBInspectable var isLiked: Bool = false
+    @IBInspectable var count: Int = 0
 
     override func draw(_ rect: CGRect) {
         // Drawing code
@@ -34,18 +35,25 @@ class LikeControl: UIControl {
         
         if isLiked {
             heartPath.stroke()
-        } else {
             heartPath.fill()
+            count+=1
+        } else {
+            heartPath.stroke()
+            if (count > 0) {
+                count-=1
+            }
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupGesture()
+        backgroundColor = .clear
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupGesture()
+        backgroundColor = .clear
     }
     
     private func setupGesture() {
@@ -57,5 +65,9 @@ class LikeControl: UIControl {
         isLiked.toggle()
         self.setNeedsDisplay()
         sendActions(for: .valueChanged)
+    }
+    
+    public func configure(likes count: Int, isLikedByUser: Bool) {
+        self.count = count
     }
 }

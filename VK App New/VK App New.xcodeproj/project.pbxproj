@@ -14,7 +14,6 @@
 		C405E720236DBAB00063EAAD /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405E71F236DBAB00063EAAD /* Users.swift */; };
 		C405E722236DBFB90063EAAD /* UsersDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405E721236DBFB90063EAAD /* UsersDetailController.swift */; };
 		C405E724236DBFF30063EAAD /* UsersDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C405E723236DBFF30063EAAD /* UsersDetailCell.swift */; };
-		C4213DB72376DB4800E70946 /* AvatarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4213DB62376DB4800E70946 /* AvatarControl.swift */; };
 		C4213DB92376DBB300E70946 /* AvatarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4213DB82376DBB300E70946 /* AvatarController.swift */; };
 		C4213DBB2376F7F100E70946 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4213DBA2376F7F100E70946 /* LikeControl.swift */; };
 		C453018B236B456E001D1D6C /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453018A236B456E001D1D6C /* GroupController.swift */; };
@@ -26,6 +25,7 @@
 		C457C001235E1AF0008ACCD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C457C000235E1AF0008ACCD0 /* Assets.xcassets */; };
 		C457C004235E1AF0008ACCD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C457C002235E1AF0008ACCD0 /* LaunchScreen.storyboard */; };
 		C47625752360EE8A007F4AB6 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47625742360EE8A007F4AB6 /* UIViewController+Ext.swift */; };
+		C4F99FF623776AA000CF4D1F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F99FF523776AA000CF4D1F /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		C405E71F236DBAB00063EAAD /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C405E721236DBFB90063EAAD /* UsersDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailController.swift; sourceTree = "<group>"; };
 		C405E723236DBFF30063EAAD /* UsersDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailCell.swift; sourceTree = "<group>"; };
-		C4213DB62376DB4800E70946 /* AvatarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarControl.swift; sourceTree = "<group>"; };
 		C4213DB82376DBB300E70946 /* AvatarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarController.swift; sourceTree = "<group>"; };
 		C4213DBA2376F7F100E70946 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		C453018A236B456E001D1D6C /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		C457C003235E1AF0008ACCD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C457C005235E1AF0008ACCD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47625742360EE8A007F4AB6 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		C4F99FF523776AA000CF4D1F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +109,8 @@
 				C453018D236B45E4001D1D6C /* GroupCell.swift */,
 				C405E71D236DB9A30063EAAD /* UsersCell.swift */,
 				C405E723236DBFF30063EAAD /* UsersDetailCell.swift */,
-				C4213DB62376DB4800E70946 /* AvatarControl.swift */,
 				C4213DBA2376F7F100E70946 /* LikeControl.swift */,
+				C4F99FF523776AA000CF4D1F /* AvatarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,7 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4213DB72376DB4800E70946 /* AvatarControl.swift in Sources */,
 				C453018E236B45E4001D1D6C /* GroupCell.swift in Sources */,
 				C4213DBB2376F7F100E70946 /* LikeControl.swift in Sources */,
 				C457BFFC235E1AE2008ACCD0 /* LoginControler.swift in Sources */,
@@ -232,6 +231,7 @@
 				C453018B236B456E001D1D6C /* GroupController.swift in Sources */,
 				C405E71C236DB93E0063EAAD /* UsersController.swift in Sources */,
 				C405E720236DBAB00063EAAD /* Users.swift in Sources */,
+				C4F99FF623776AA000CF4D1F /* AvatarView.swift in Sources */,
 				C405E722236DBFB90063EAAD /* UsersDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
