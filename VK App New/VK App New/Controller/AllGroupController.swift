@@ -20,7 +20,7 @@ class AllGroupController: UIViewController {
         Group(image: UIImage(named: "garage")!, name: "Group 6"),
         Group(image: UIImage(named: "11")!, name: "Group 7"),
         Group(image: UIImage(named: "1089093")!, name: "Group 8"),
-        Group(image: UIImage(named: "unnamed")!, name: "Group 9"),
+        Group(image: UIImage(named: "1089093")!, name: "Group 9"),
         Group(image: UIImage(named: "icon")!, name: "Group 10")
     ]
     

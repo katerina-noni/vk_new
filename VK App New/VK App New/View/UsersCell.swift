@@ -17,6 +17,7 @@ class UsersCell: UITableViewCell {
     
     @IBOutlet weak var likeControl: LikeControl!
     
+    
     public func configureLikeControl(likes count: Int, isLikedByUser: Bool){
         likeControl.configure(likes: count, isLikedByUser: isLikedByUser)
     }
