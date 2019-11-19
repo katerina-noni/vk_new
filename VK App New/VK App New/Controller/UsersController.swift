@@ -10,7 +10,11 @@ import UIKit
 
 class UsersController: UITableViewController {
     
-    @IBOutlet weak var userSearchBar: UISearchBar!
+    @IBOutlet var userSearchBar: UISearchBar! {
+        didSet {
+            userSearchBar.delegate = self
+        }
+    }
     
     let user = [
         Users(image: UIImage(named: "769991")!, name: "Алексеева"),
@@ -27,6 +31,7 @@ class UsersController: UITableViewController {
     ]
 
     var sortedUsers = [Character: [Users]]()
+    var filteredUsers = [Users]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +39,7 @@ class UsersController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         self.sortedUsers = sort(user: user)
+        filteredUsers = user
     }
     
     private func sort(user: [Users]) -> [Character: [Users]] {
@@ -99,11 +105,11 @@ class UsersController: UITableViewController {
 extension UsersController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            let filteredUsers = user
-            self.sortedUsers = sort(user: filteredUsers)
+            sortedUsers = sort(user: user)
         } else {
-            let filteredUsers = user.filter { $0.name.contains(searchText) }
-            self.sortedUsers = sort(user: filteredUsers)
+            filteredUsers = user
+                .filter { $0.name.contains(searchText) }
+                .sorted { $0.name < $1.name }
         }
         tableView.reloadData()
     }
