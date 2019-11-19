@@ -10,39 +10,80 @@ import UIKit
 
 class UsersController: UITableViewController {
     
-    let user = [
-        Users(image: UIImage(named: "769991")!, name: "Friend 1"),
-        Users(image: UIImage(named: "391073")!, name: "Friend 2"),
-        Users(image: UIImage(named: "profile")!, name: "Friend 3"),
-        Users(image: UIImage(named: "shkpj")!, name: "Friend 4")
-    ]
+    @IBOutlet var userSearchBar: UISearchBar! {
+        didSet {
+            userSearchBar.delegate = self
+        }
+    }
     
-    override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-           
-           navigationController?.setNavigationBarHidden(false, animated: true)
+    let user = [
+        Users(image: UIImage(named: "769991")!, name: "Алексеева"),
+        Users(image: UIImage(named: "391073")!, name: "Кабанов"),
+        Users(image: UIImage(named: "profile")!, name: "Афанасьева"),
+        Users(image: UIImage(named: "shkpj")!, name: "Жданов"),
+        Users(image: UIImage(named: "391073")!, name: "Осипов"),
+        Users(image: UIImage(named: "profile")!, name: "Красильникова"),
+        Users(image: UIImage(named: "shkpj")!, name: "Жданова"),
+        Users(image: UIImage(named: "shkpj")!, name: "Доронина"),
+        Users(image: UIImage(named: "profile")!, name: "Богданов"),
+        Users(image: UIImage(named: "shkpj")!, name: "Петухов"),
+        Users(image: UIImage(named: "shkpj")!, name: "Степанов")
+    ]
 
-       }
+    var sortedUsers = [Character: [Users]]()
+    var filteredUsers = [Users]()
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.sortedUsers = sort(user: user)
+        filteredUsers = user
+    }
+    
+    private func sort(user: [Users]) -> [Character: [Users]] {
+        var userDick = [Character: [Users]]()
+        
+        user.forEach { users in
+            guard let firstUser = users.name.first else { return }
+            if var thisCharUser = userDick[firstUser] {
+                thisCharUser.append(users)
+                userDick[firstUser] = thisCharUser.sorted { $0.name < $1.name }
+            } else {
+                userDick[firstUser] = [users]
+            }
+            
+        }
+        return userDick
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sortedUsers.keys.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let firstUser = sortedUsers.keys.sorted()[section]
+        return String(firstUser)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user.count
+        let keysSort = sortedUsers.keys.sorted()
+        return sortedUsers[keysSort[section]]?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UsersCell", for: indexPath) as? UsersCell else {
            preconditionFailure("UsersCell cannot be dequeued")
         }
-            let usersname = user[indexPath.row].name
-            let usersImage = user[indexPath.row].image
-            cell.usersLabel.text = usersname
-            cell.usersImageView.image = usersImage
-
+        
+        let firstUser = sortedUsers.keys.sorted()[indexPath.section]
+        let user = sortedUsers[firstUser]!
+        let users: Users = user[indexPath.row]
+        cell.usersLabel.text = users.name
+        cell.usersImageView.image = users.image
 
         return cell
     }
@@ -59,4 +100,17 @@ class UsersController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension UsersController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            sortedUsers = sort(user: user)
+        } else {
+            filteredUsers = user
+                .filter { $0.name.contains(searchText) }
+                .sorted { $0.name < $1.name }
+        }
+        tableView.reloadData()
+    }
 }
