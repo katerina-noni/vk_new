@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@IBDesignable
+
 class LikeControl: UIControl {
     @IBInspectable var isLiked: Bool = false
     @IBInspectable var count: Int = 0
