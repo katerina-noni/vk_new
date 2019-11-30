@@ -22,12 +22,12 @@ class UsersController: UITableViewController {
         Users(image: UIImage(named: "profile")!, name: "Афанасьева"),
         Users(image: UIImage(named: "shkpj")!, name: "Жданов"),
         Users(image: UIImage(named: "391073")!, name: "Осипов"),
-        Users(image: UIImage(named: "profile")!, name: "Красильникова"),
-        Users(image: UIImage(named: "shkpj")!, name: "Жданова"),
-        Users(image: UIImage(named: "shkpj")!, name: "Доронина"),
-        Users(image: UIImage(named: "profile")!, name: "Богданов"),
-        Users(image: UIImage(named: "shkpj")!, name: "Петухов"),
-        Users(image: UIImage(named: "shkpj")!, name: "Степанов")
+        Users(image: UIImage(named: "hanxiang")!, name: "Красильникова"),
+        Users(image: UIImage(named: "invisible")!, name: "Жданова"),
+        Users(image: UIImage(named: "medium")!, name: "Доронина"),
+        Users(image: UIImage(named: "x1926396")!, name: "Богданов"),
+        Users(image: UIImage(named: "Uq1tTvQrKuI")!, name: "Петухов"),
+        Users(image: UIImage(named: "300_300")!, name: "Степанов")
     ]
     
     var filteredUsers = [Users]()

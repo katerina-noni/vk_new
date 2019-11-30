@@ -17,11 +17,11 @@ class AllGroupController: UIViewController {
     }
 
     let groups = [
-        Group(image: UIImage(named: "garage")!, name: "Group 6"),
-        Group(image: UIImage(named: "11")!, name: "Group 7"),
-        Group(image: UIImage(named: "1089093")!, name: "Group 8"),
-        Group(image: UIImage(named: "1089093")!, name: "Group 9"),
-        Group(image: UIImage(named: "icon")!, name: "Group 10")
+        Group(image: UIImage(named: "hqdefault")!, name: "Six"),
+        Group(image: UIImage(named: "new-balance")!, name: "Seven"),
+        Group(image: UIImage(named: "pngtree")!, name: "Eight"),
+        Group(image: UIImage(named: "17a3a1aef")!, name: "Nine"),
+        Group(image: UIImage(named: "fddd0747")!, name: "Ten")
     ]
     
     override func viewDidLoad() {

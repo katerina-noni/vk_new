@@ -8,14 +8,21 @@
 
 import UIKit
 
+private let reuseIdentifier = "Cell"
 class NewsController: UITableViewController {
 
-    let news = [
-        News(image: UIImage(named: "smile")!, name: "News")]
+    let groups = [
+        Group(image: UIImage(named: "hqdefault")!, name: "Six"),
+        Group(image: UIImage(named: "new-balance")!, name: "Seven"),
+        Group(image: UIImage(named: "pngtree")!, name: "Eight"),
+        Group(image: UIImage(named: "17a3a1aef")!, name: "Nine"),
+        Group(image: UIImage(named: "fddd0747")!, name: "Ten")
+    ]
+    
+    var newsImage: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    navigationController?.setNavigationBarHidden(false, animated: true)
 
     }
 
@@ -28,19 +35,27 @@ class NewsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return news.count
+        return groups.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell else {
         preconditionFailure("NewsCell cannot be dequeued")
         }
-            print("Section: " + String(indexPath.section) + ", row: " + String(indexPath.row))
-            let newImage = news[indexPath.row].image
-            let nameNews = news[indexPath.row].name
-            cell.newsImageView.image = newImage
-            cell.newsLabel.text = nameNews
+        
+        let newsName = groups[indexPath.row].name
+        cell.nameNewsLabel?.text = newsName
+        
+        let groupImage = groups[indexPath.row].image
+        cell.newsOneImageView.image = groupImage
+        
+        let newsImage = groups[indexPath.row].image
+        cell.newsTwoImageView.image = newsImage
             
         return cell
         }
+    
+    @IBAction func logoutNews(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

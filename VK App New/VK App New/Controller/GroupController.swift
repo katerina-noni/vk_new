@@ -19,7 +19,8 @@ class GroupController: UITableViewController {
         Group(image: UIImage(named: "garage")!, name: "One"),
         Group(image: UIImage(named: "11")!, name: "Two"),
         Group(image: UIImage(named: "1089093")!, name: "Three"),
-        Group(image: UIImage(named: "icon")!, name: "Four")
+        Group(image: UIImage(named: "icon")!, name: "Four"),
+        Group(image: UIImage(named: "Dell")!, name: "Five")
     ]
     
     var filterGroup = [Group]()
