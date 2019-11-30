@@ -11,9 +11,17 @@ import UIKit
 class Users {
     let image: UIImage?
     let name: String
+    let photos: [UIImage]
     
     init(image: UIImage, name: String) {
         self.image = image
         self.name = name
+        self.photos = []
+    }
+    
+    init(image: UIImage, name: String, photos: [UIImage]) {
+        self.image = image
+        self.name = name
+        self.photos = photos
     }
 }

@@ -12,10 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class UsersDetailController: UICollectionViewController {
 
-    private let photos = [
-        UIImage(named: "shkpj"),
-        UIImage(named: "1089093")
-    ]
+    public var photos = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +29,20 @@ class UsersDetailController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsersDetailCell", for: indexPath) as? UsersDetailCell else { preconditionFailure() }
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsersDetailCell", for: indexPath) as! UsersDetailCell
     
         cell.detailImageView.image = photos[indexPath.item]
-        
-        let count = Int.random(in: 5...500)
-        let isLiked = Bool.random()
-        cell.configureLikeControl(likes: count, isLikedByUser: isLiked)
-
         return cell
+    }
+}
+extension UsersDetailController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Big Photo",
+            let selectedPhotoIndexPath = collectionView.indexPathsForSelectedItems?.first,
+            let bigPhotoVC = segue.destination as? BigPhotosController {
+            bigPhotoVC.photos = photos
+            bigPhotoVC.selectedPhotoIndex = selectedPhotoIndexPath.item
+            collectionView.deselectItem(at: selectedPhotoIndexPath, animated: true)
+        }
     }
 }

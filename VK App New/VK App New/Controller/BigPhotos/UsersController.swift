@@ -17,11 +17,17 @@ class UsersController: UITableViewController {
     }
     
     let user = [
-        Users(image: UIImage(named: "769991")!, name: "Алексеева"),
-        Users(image: UIImage(named: "391073")!, name: "Кабанов"),
-        Users(image: UIImage(named: "profile")!, name: "Афанасьева"),
-        Users(image: UIImage(named: "shkpj")!, name: "Жданов"),
-        Users(image: UIImage(named: "391073")!, name: "Осипов"),
+        Users(image: UIImage(named: "5c91fe20")!,
+              name: "Алексеева",
+              photos: [
+                UIImage(named: "8UlQMLZM5Lo")!,
+                UIImage(named: "hqdefault_live")!,
+                UIImage(named: "mzJRMMKu")!
+        ]),
+        Users(image: UIImage(named: "a1ccdeb")!, name: "Кабанов"),
+        Users(image: UIImage(named: "agent")!, name: "Афанасьева"),
+        Users(image: UIImage(named: "psOIgbUF")!, name: "Жданов"),
+        Users(image: UIImage(named: "profile_1_big")!, name: "Осипов"),
         Users(image: UIImage(named: "hanxiang")!, name: "Красильникова"),
         Users(image: UIImage(named: "invisible")!, name: "Жданова"),
         Users(image: UIImage(named: "medium")!, name: "Доронина"),
@@ -86,26 +92,8 @@ class UsersController: UITableViewController {
 
         return cell
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//         if segue.identifier == "UserDetailPhotos",
-//             let destinationVC = segue.destination as? UsersDetailController,
-//             let indexPath = tableView.indexPathForSelectedRow {
-//             let usersname = user[indexPath.row].name
-//             destinationVC.title = usersname
-//         }
-//     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationVC = UIStoryboard(
-            name: "Main",
-            bundle: nil).instantiateViewController(withIdentifier: "UserPhotos") as! UsersDetailController
-        
-        let keysection = sortedUsers.keys.sorted()[indexPath.section]
-        let detailInfo = sortedUsers[keysection]![indexPath.row]
-        
-        destinationVC.title = detailInfo.name
-        
-        navigationController?.pushViewController(destinationVC, animated: true)
+        performSegue(withIdentifier: "UserDetailPhotos", sender: nil)
     }
     
     @IBAction func logoutUserButton(_ sender: Any) {
@@ -122,5 +110,20 @@ extension UsersController: UISearchBarDelegate {
         }
         sortedUsers = sort(user: filteredUsers)
         tableView.reloadData()
+    }
+}
+
+extension UsersController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserDetailPhotos",
+            let allPhotosVC = segue.destination as? UsersDetailController,
+            let selectedCellIndexPath = tableView.indexPathForSelectedRow {
+            
+            let firstUser = sortedUsers.keys.sorted()[selectedCellIndexPath.section]
+            let user = sortedUsers[firstUser]!
+            let selectedUserd = user[selectedCellIndexPath.row]
+            
+            allPhotosVC.photos = selectedUserd.photos
+        }
     }
 }
