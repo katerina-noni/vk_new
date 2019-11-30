@@ -34,7 +34,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u3-5q-4ED">
-                        <rect key="frame" x="100" y="0.0" width="240" height="80"/>
+                        <rect key="frame" x="100" y="0.0" width="230" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="ALJ-YT-Zxc"/>
                         </constraints>
@@ -50,7 +50,7 @@
                     <constraint firstItem="dn9-FR-3aI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oBo-M4-YAN"/>
                     <constraint firstItem="dn9-FR-3aI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="opv-2g-u6c"/>
                     <constraint firstAttribute="bottom" secondItem="8u3-5q-4ED" secondAttribute="bottom" id="q69-cC-qWK"/>
-                    <constraint firstAttribute="trailing" secondItem="8u3-5q-4ED" secondAttribute="trailing" constant="10" id="vhI-OD-MHp"/>
+                    <constraint firstAttribute="trailing" secondItem="8u3-5q-4ED" secondAttribute="trailing" constant="20" id="vhI-OD-MHp"/>
                     <constraint firstItem="8u3-5q-4ED" firstAttribute="leading" secondItem="dn9-FR-3aI" secondAttribute="trailing" constant="20" id="zso-jP-cNd"/>
                 </constraints>
             </tableViewCellContentView>

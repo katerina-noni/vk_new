@@ -30,6 +30,8 @@
 		C4978FE723817E4A0073B92A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4978FE623817E4A0073B92A /* News.swift */; };
 		C4AC201623928A2900BF8C35 /* UserXibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC201423928A2900BF8C35 /* UserXibCell.swift */; };
 		C4AC201723928A2900BF8C35 /* UserXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AC201523928A2900BF8C35 /* UserXibCell.xib */; };
+		C4AC201A2392A08000BF8C35 /* GroupXibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC20182392A08000BF8C35 /* GroupXibCell.swift */; };
+		C4AC201B2392A08000BF8C35 /* GroupXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AC20192392A08000BF8C35 /* GroupXibCell.xib */; };
 		C4F99FF623776AA000CF4D1F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F99FF523776AA000CF4D1F /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		C4978FE623817E4A0073B92A /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4AC201423928A2900BF8C35 /* UserXibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserXibCell.swift; sourceTree = "<group>"; };
 		C4AC201523928A2900BF8C35 /* UserXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserXibCell.xib; sourceTree = "<group>"; };
+		C4AC20182392A08000BF8C35 /* GroupXibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupXibCell.swift; sourceTree = "<group>"; };
+		C4AC20192392A08000BF8C35 /* GroupXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupXibCell.xib; sourceTree = "<group>"; };
 		C4F99FF523776AA000CF4D1F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +130,8 @@
 				C4F99FF523776AA000CF4D1F /* AvatarView.swift */,
 				C4AC201423928A2900BF8C35 /* UserXibCell.swift */,
 				C4AC201523928A2900BF8C35 /* UserXibCell.xib */,
+				C4AC20182392A08000BF8C35 /* GroupXibCell.swift */,
+				C4AC20192392A08000BF8C35 /* GroupXibCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 				C457C004235E1AF0008ACCD0 /* LaunchScreen.storyboard in Resources */,
 				C457C001235E1AF0008ACCD0 /* Assets.xcassets in Resources */,
 				C4978FE523815E8A0073B92A /* NewsCell.xib in Resources */,
+				C4AC201B2392A08000BF8C35 /* GroupXibCell.xib in Resources */,
 				C457BFFF235E1AE2008ACCD0 /* Main.storyboard in Resources */,
 				C4AC201723928A2900BF8C35 /* UserXibCell.xib in Resources */,
 			);
@@ -239,6 +246,7 @@
 				C457BFFC235E1AE2008ACCD0 /* LoginControler.swift in Sources */,
 				C4421A8F23848CFD00C61185 /* AnimationController.swift in Sources */,
 				C457BFF8235E1AE2008ACCD0 /* AppDelegate.swift in Sources */,
+				C4AC201A2392A08000BF8C35 /* GroupXibCell.swift in Sources */,
 				C405E71A236DA7FA0063EAAD /* Group.swift in Sources */,
 				C47625752360EE8A007F4AB6 /* UIViewController+Ext.swift in Sources */,
 				C405E724236DBFF30063EAAD /* UsersDetailCell.swift in Sources */,
