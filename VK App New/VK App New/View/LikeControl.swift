@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 @IBDesignable
 class LikeControl: UIControl {
     @IBInspectable var isLiked: Bool = false

@@ -30,6 +30,7 @@
 		C4AC201723928A2900BF8C35 /* UserXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AC201523928A2900BF8C35 /* UserXibCell.xib */; };
 		C4AC201A2392A08000BF8C35 /* GroupXibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC20182392A08000BF8C35 /* GroupXibCell.swift */; };
 		C4AC201B2392A08000BF8C35 /* GroupXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AC20192392A08000BF8C35 /* GroupXibCell.xib */; };
+		C4D5FB7323933DBE00358A22 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5FB7223933DBE00358A22 /* Session.swift */; };
 		C4F99FF623776AA000CF4D1F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F99FF523776AA000CF4D1F /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		C4AC201523928A2900BF8C35 /* UserXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserXibCell.xib; sourceTree = "<group>"; };
 		C4AC20182392A08000BF8C35 /* GroupXibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupXibCell.swift; sourceTree = "<group>"; };
 		C4AC20192392A08000BF8C35 /* GroupXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupXibCell.xib; sourceTree = "<group>"; };
+		C4D5FB7223933DBE00358A22 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C4F99FF523776AA000CF4D1F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			children = (
 				C405E719236DA7FA0063EAAD /* Group.swift */,
 				C405E71F236DBAB00063EAAD /* Users.swift */,
+				C4D5FB7223933DBE00358A22 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D5FB7323933DBE00358A22 /* Session.swift in Sources */,
 				C4213DBB2376F7F100E70946 /* LikeControl.swift in Sources */,
 				C457BFFC235E1AE2008ACCD0 /* LoginControler.swift in Sources */,
 				C4421A8F23848CFD00C61185 /* AnimationController.swift in Sources */,

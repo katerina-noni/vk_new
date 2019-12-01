@@ -46,3 +46,10 @@ extension UsersDetailController {
         }
     }
 }
+extension UsersDetailController: UserDetailCellDelegate {
+    func likeControlImage(isLike: Bool) {
+        print("Just print for delegate")
+    }
+    
+    
+}

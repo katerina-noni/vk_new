@@ -378,6 +378,9 @@
                                                     <integer key="value" value="3"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="likeControl:" destination="qgL-oh-xXw" eventType="valueChanged" id="Ht2-qc-bGE"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -499,6 +502,9 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Dll-kR-xAZ" secondAttribute="height" multiplier="1:1" id="Kbg-7w-zoD"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="newsLikeControl:" destination="gjS-MZ-f9U" eventType="valueChanged" id="r4e-lK-XpM"/>
+                                            </connections>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7KI-B7-Ppr">
                                             <rect key="frame" x="100" y="458" width="40" height="40"/>
