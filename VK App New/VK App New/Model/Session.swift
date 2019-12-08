@@ -9,7 +9,7 @@
 import Foundation
 
 class Session {
-    private init(){ }
+    private init() { }
     
     public static let access = Session()
     
