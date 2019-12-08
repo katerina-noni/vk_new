@@ -59,3 +59,8 @@ class NewsController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+extension NewsController: NewsCellDelegate {
+    func likedControl(isLike: Bool) {
+        print("Just primt for like in News")
+    }
+}

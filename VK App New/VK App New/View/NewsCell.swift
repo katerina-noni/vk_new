@@ -7,6 +7,9 @@
 //
 
 import UIKit
+protocol NewsCellDelegate: class {
+    func likedControl(isLike: Bool)
+}
 
 class NewsCell: UITableViewCell {
     
@@ -17,6 +20,8 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var nameNewsLabel: UILabel!
     
     @IBOutlet weak var newsLikeControl: LikeControl!
+    
+    public var delegated: NewsCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,4 +34,7 @@ class NewsCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func newsLikeControl(_ sender: Any) {
+        delegated?.likedControl(isLike: false)
+    }
 }
