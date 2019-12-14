@@ -7,5 +7,7 @@ target 'VK App New' do
 
   # Pods for VK App New
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'Kingfisher'
+  pod 'SwiftyJSON'
 
 end
