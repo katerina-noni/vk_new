@@ -37,7 +37,9 @@
 		C4AC201723928A2900BF8C35 /* UserXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AC201523928A2900BF8C35 /* UserXibCell.xib */; };
 		C4AC201A2392A08000BF8C35 /* GroupXibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC20182392A08000BF8C35 /* GroupXibCell.swift */; };
 		C4AC201B2392A08000BF8C35 /* GroupXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AC20192392A08000BF8C35 /* GroupXibCell.xib */; };
-		C4D5FB7323933DBE00358A22 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5FB7223933DBE00358A22 /* Session.swift */; };
+        C4D5FB7323933DBE00358A22 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5FB7223933DBE00358A22 /* Session.swift */; };
+		C4D30855239D513E0012373E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D30854239D513E0012373E /* Session.swift */; };
+		C4D30857239D57750012373E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D30856239D57750012373E /* NetworkService.swift */; };
 		C4F99FF623776AA000CF4D1F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F99FF523776AA000CF4D1F /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +79,8 @@
 		C4AC201523928A2900BF8C35 /* UserXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserXibCell.xib; sourceTree = "<group>"; };
 		C4AC20182392A08000BF8C35 /* GroupXibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupXibCell.swift; sourceTree = "<group>"; };
 		C4AC20192392A08000BF8C35 /* GroupXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupXibCell.xib; sourceTree = "<group>"; };
-		C4D5FB7223933DBE00358A22 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		C4D30854239D513E0012373E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		C4D30856239D57750012373E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C4F99FF523776AA000CF4D1F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		E6B3350014BB0A76113653A3 /* Pods-VK App New.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK App New.debug.xcconfig"; path = "Target Support Files/Pods-VK App New/Pods-VK App New.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,9 +177,9 @@
 		C4530191236B476A001D1D6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4D30854239D513E0012373E /* Session.swift */,
 				C405E719236DA7FA0063EAAD /* Group.swift */,
 				C405E71F236DBAB00063EAAD /* Users.swift */,
-				C4D5FB7223933DBE00358A22 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				C453018C236B4588001D1D6C /* Controller */,
 				C4530189236B4415001D1D6C /* Resource */,
 				C457C005235E1AF0008ACCD0 /* Info.plist */,
+				C4D30856239D57750012373E /* NetworkService.swift */,
 			);
 			path = "VK App New";
 			sourceTree = "<group>";
@@ -373,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4D5FB7323933DBE00358A22 /* Session.swift in Sources */,
+				C4D30857239D57750012373E /* NetworkService.swift in Sources */,
 				C4213DBB2376F7F100E70946 /* LikeControl.swift in Sources */,
 				C457BFFC235E1AE2008ACCD0 /* LoginControler.swift in Sources */,
 				C4421A8F23848CFD00C61185 /* AnimationController.swift in Sources */,
@@ -387,6 +392,7 @@
 				C419DD3A2392DB1100CD6ACE /* NewsCell.swift in Sources */,
 				C453018B236B456E001D1D6C /* GroupController.swift in Sources */,
 				C4AC201623928A2900BF8C35 /* UserXibCell.swift in Sources */,
+				C4D30855239D513E0012373E /* Session.swift in Sources */,
 				C4140319237C785F003DA644 /* NewsController.swift in Sources */,
 				C405E71C236DB93E0063EAAD /* UsersController.swift in Sources */,
 				C43425F7239D33AF00508B2B /* VKLoginController.swift in Sources */,
