@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 protocol NewsCellDelegate: class {
     func likedControl(isLike: Bool)
 }
@@ -36,5 +38,11 @@ class NewsCell: UITableViewCell {
 
     @IBAction func newsLikeControl(_ sender: Any) {
         delegated?.likedControl(isLike: false)
+    }
+    
+    public func configure(with groups: Groups) {
+        self.nameNewsLabel.text = groups.name
+        self.newsOneImageView.kf.setImage(with: URL(string: groups.image))
+        self.newsTwoImageView.kf.setImage(with: URL(string: groups.image))
     }
 }

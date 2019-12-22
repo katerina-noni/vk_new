@@ -11,18 +11,32 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class UsersDetailController: UICollectionViewController {
+    private let networkService = NetworkService(token: Session.access.token)
 
-    public var photos = [UIImage]()
+    var userId = Int()
+    var photos = [Photos]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkService.loadPhotos(userId: userId) { result in
+            switch result {
+            case let .success(photos):
+                self.photos = photos
+                guard !photos.isEmpty else { return }
+                DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                case let .failure(error):
+                    print(error)
+            }
+        }
     }
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -31,7 +45,8 @@ class UsersDetailController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsersDetailCell", for: indexPath) as! UsersDetailCell
     
-        cell.detailImageView.image = photos[indexPath.item]
+        let photo: Photos = photos[indexPath.row]
+        cell.configure(with: photo)
         return cell
     }
 }

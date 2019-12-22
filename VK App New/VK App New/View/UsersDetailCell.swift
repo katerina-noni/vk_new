@@ -24,4 +24,7 @@ class UsersDetailCell: UICollectionViewCell {
     @IBAction func likeControl(_ sender: Any) {
         delegate?.likeControlImage(isLike: false)
     }
+    public func configure(with photos: Photos) {
+        self.detailImageView.kf.setImage(with: URL(string: photos.imageCell))
+    }
 }
