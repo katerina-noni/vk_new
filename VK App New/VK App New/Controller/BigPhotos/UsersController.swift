@@ -19,7 +19,7 @@ class UsersController: UITableViewController {
         }
     }
     private var user = [User]()
-    var filteredUsers = [User]()
+    var filteredUsers = [Character: [User]]()
     var sortedUsers = [Character: [User]]()
         
     override func viewDidLoad() {
@@ -28,6 +28,24 @@ class UsersController: UITableViewController {
         tableView.register(UINib(nibName: "UserXibCell", bundle: nil), forCellReuseIdentifier: "UserXibCell")
         
         self.sortedUsers = sort(user: user)
+        
+        networkService.loadFriends() { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(user):
+                guard !user.isEmpty else { return }
+                self.user = user
+                self.sortedUsers = self.sort(user: user)
+                self.filteredUsers = self.sortedUsers
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            case let .failure(error):
+                print(error)
+            }
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +109,7 @@ class UsersController: UITableViewController {
 extension UsersController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            filteredUsers = user
+            filteredUsers = sortedUsers
         } else {
             filteredUsers = user.filter { ($0.fullName.lowercased() as AnyObject).contains(searchText.lowercased()) }
         }
