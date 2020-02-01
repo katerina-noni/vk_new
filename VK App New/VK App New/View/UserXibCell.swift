@@ -47,5 +47,8 @@ class UserXibCell: UITableViewCell {
                         self.fotoUserImageView.bounds.size.height *= 2
         })
     }
-    
+    public func configure(with friends: User) {
+        self.nameUserLabel.text = friends.fullName
+        self.fotoUserImageView.kf.setImage(with: URL(string: friends.photoURL))
+    }
 }

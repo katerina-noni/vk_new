@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GroupXibCell: UITableViewCell {
     
@@ -31,6 +32,11 @@ class GroupXibCell: UITableViewCell {
                                 animations: {
                                     self.fotoImageView.bounds.size.height *= 2
         })
+    }
+    
+    public func configure(with groups: Groups) {
+        self.nameGroupLabel.text = groups.name
+        self.fotoImageView.kf.setImage(with: URL(string: groups.image))
     }
     
 }

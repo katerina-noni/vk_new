@@ -10,31 +10,39 @@ import UIKit
 
 class GroupController: UITableViewController {
     
+    private let networkServise = NetworkService(token: Session.access.token)
+    
     @IBOutlet weak var groupSearchBar: UISearchBar! {
         didSet {
             groupSearchBar.delegate = self
         }
     }
-    var groups = [
-        Group(image: UIImage(named: "garage")!, name: "One"),
-        Group(image: UIImage(named: "11")!, name: "Two"),
-        Group(image: UIImage(named: "1089093")!, name: "Three"),
-        Group(image: UIImage(named: "icon")!, name: "Four"),
-        Group(image: UIImage(named: "Dell")!, name: "Five")
-    ]
-    
-    var filterGroup = [Group]()
-    var sortedGroup: [Character: [Group]] = [:]
+    var groups = [Groups]()
+    var filterGroup = [Groups]()
+    var sortedGroup: [Character: [Groups]] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "GroupXibCell", bundle: nil), forCellReuseIdentifier: "GroupXibCell")
               
-              self.sortedGroup = sortedGroupArray(array: groups)
+            self.sortedGroup = sortedGroupArray(array: groups)
+        networkServise.loadGroups(userId: Session.access.userId) {
+            result in
+            switch result {
+            case let .success(groups):
+                self.groups = groups
+                guard !groups.isEmpty else { return }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
-    private func sortedGroupArray(array: [Group]) -> [Character:[Group]] {
-        var sortDict = [Character: [Group]]()
+    private func sortedGroupArray(array: [Groups]) -> [Character:[Groups]] {
+        var sortDict = [Character: [Groups]]()
         
         array.forEach { group in
             guard let firstChar = group.name.first else { return }
@@ -72,15 +80,15 @@ class GroupController: UITableViewController {
         
         let firstChar = sortedGroup.keys.sorted()[indexPath.section]
         let groupFirst = sortedGroup[firstChar]!
-        let group: Group = groupFirst[indexPath.row]
+        let group: Groups = groupFirst[indexPath.row]
         
-        cell.nameGroupLabel.text = group.name
-        cell.fotoImageView.image = group.image
+        cell.configure(with: group)
         
         return cell
     }
     @IBAction func addSelectedGroup(segue: UIStoryboardSegue) {
-        if let sourceVC = segue.source as? AllGroupController,
+        if segue.identifier == "Add New Group",
+            let sourceVC = segue.source as? AllGroupController,
             let indexPath = sourceVC.tableView.indexPathForSelectedRow {
             let group = sourceVC.groups[indexPath.row]
             if !groups.contains(where:{ $0.name == group.name}) {

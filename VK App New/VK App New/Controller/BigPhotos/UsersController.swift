@@ -8,36 +8,19 @@
 
 import UIKit
 
+
 class UsersController: UITableViewController {
+    
+    private let networkService = NetworkService(token: Session.access.token)
     
     @IBOutlet var userSearchBar: UISearchBar! {
         didSet {
             userSearchBar.delegate = self
         }
     }
-    
-    let user = [
-        Users(image: UIImage(named: "5c91fe20")!,
-              name: "Алексеева",
-              photos: [
-                UIImage(named: "8UlQMLZM5Lo")!,
-                UIImage(named: "hqdefault_live")!,
-                UIImage(named: "mzJRMMKu")!
-        ]),
-        Users(image: UIImage(named: "a1ccdeb")!, name: "Кабанов"),
-        Users(image: UIImage(named: "agent")!, name: "Афанасьева"),
-        Users(image: UIImage(named: "psOIgbUF")!, name: "Жданов"),
-        Users(image: UIImage(named: "profile_1_big")!, name: "Осипов"),
-        Users(image: UIImage(named: "hanxiang")!, name: "Красильникова"),
-        Users(image: UIImage(named: "invisible")!, name: "Жданова"),
-        Users(image: UIImage(named: "medium")!, name: "Доронина"),
-        Users(image: UIImage(named: "x1926396")!, name: "Богданов"),
-        Users(image: UIImage(named: "Uq1tTvQrKuI")!, name: "Петухов"),
-        Users(image: UIImage(named: "300_300")!, name: "Степанов")
-    ]
-    
-    var filteredUsers = [Users]()
-    var sortedUsers = [Character: [Users]]()
+    private var user = [User]()
+    var filteredUsers = [Character: [User]]()
+    var sortedUsers = [Character: [User]]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,16 +28,38 @@ class UsersController: UITableViewController {
         tableView.register(UINib(nibName: "UserXibCell", bundle: nil), forCellReuseIdentifier: "UserXibCell")
         
         self.sortedUsers = sort(user: user)
+        
+        networkService.loadFriends() { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(user):
+                guard !user.isEmpty else { return }
+                self.user = user
+                self.sortedUsers = self.sort(user: user)
+                self.filteredUsers = self.sortedUsers
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            case let .failure(error):
+                print(error)
+            }
+            
+        }
     }
     
-    private func sort(user: [Users]) -> [Character: [Users]] {
-        var userDick = [Character: [Users]]()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    private func sort(user: [User]) -> [Character: [User]] {
+        var userDick = [Character: [User]]()
         
         user.forEach { users in
-            guard let firstUser = users.name.first else { return }
+            guard let firstUser = users.fullName.first else { return }
             if var thisCharUser = userDick[firstUser] {
                 thisCharUser.append(users)
-                userDick[firstUser] = thisCharUser.sorted { $0.name < $1.name }
+                userDick[firstUser] = thisCharUser
             } else {
                 userDick[firstUser] = [users]
             }
@@ -86,9 +91,9 @@ class UsersController: UITableViewController {
         
         let firstUser = sortedUsers.keys.sorted()[indexPath.section]
         let user = sortedUsers[firstUser]!
-        let users: Users = user[indexPath.row]
-        cell.nameUserLabel.text = users.name
-        cell.fotoUserImageView.image = users.image
+        let users: User = user[indexPath.row]
+
+        cell.configure(with: users)
 
         return cell
     }
@@ -104,9 +109,9 @@ class UsersController: UITableViewController {
 extension UsersController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            filteredUsers = user
+            filteredUsers = sortedUsers
         } else {
-            filteredUsers = user.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            filteredUsers = user.filter { ($0.fullName.lowercased() as AnyObject).contains(searchText.lowercased()) }
         }
         sortedUsers = sort(user: filteredUsers)
         tableView.reloadData()
@@ -120,10 +125,9 @@ extension UsersController {
             let selectedCellIndexPath = tableView.indexPathForSelectedRow {
             
             let firstUser = sortedUsers.keys.sorted()[selectedCellIndexPath.section]
-            let user = sortedUsers[firstUser]!
-            let selectedUserd = user[selectedCellIndexPath.row]
+            let user = sortedUsers[firstUser]![selectedCellIndexPath.row]
             
-            allPhotosVC.photos = selectedUserd.photos
+            
         }
     }
 }

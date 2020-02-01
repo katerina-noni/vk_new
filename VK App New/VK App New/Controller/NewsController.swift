@@ -10,14 +10,9 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 class NewsController: UITableViewController {
+    private let networkServise = NetworkService(token: Session.access.token)
 
-    let groups = [
-        Group(image: UIImage(named: "hqdefault")!, name: "Six"),
-        Group(image: UIImage(named: "new-balance")!, name: "Seven"),
-        Group(image: UIImage(named: "pngtree")!, name: "Eight"),
-        Group(image: UIImage(named: "17a3a1aef")!, name: "Nine"),
-        Group(image: UIImage(named: "fddd0747")!, name: "Ten")
-    ]
+    var groups = [Groups]()
     
     var newsImage: [UIImage] = []
     
@@ -43,14 +38,8 @@ class NewsController: UITableViewController {
         preconditionFailure("NewsCell cannot be dequeued")
         }
         
-        let newsName = groups[indexPath.row].name
-        cell.nameNewsLabel?.text = newsName
-        
-        let groupImage = groups[indexPath.row].image
-        cell.newsOneImageView.image = groupImage
-        
-        let newsImage = groups[indexPath.row].image
-        cell.newsTwoImageView.image = newsImage
+        let group: Groups = groups[indexPath.row]
+        cell.configure(with: group)
             
         return cell
         }

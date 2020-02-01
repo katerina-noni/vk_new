@@ -68,10 +68,10 @@ extension VKLoginController: WKNavigationDelegate {
         performSegue(withIdentifier: "Run Login App", sender: nil)
 
         
-        NetworkService.loadGroups(token: token)
-        NetworkService.loadFriends(token: token)
-        NetworkService.loadPhotos(token: token)
-        NetworkService.loadGroupSearch(token: token)
+//        NetworkService.loadGroups(token: token)
+//        NetworkService.loadFriends(token: token)
+//        NetworkService.loadPhotos(token: token)
+//        NetworkService.loadGroupSearch(token: token)
 
         decisionHandler(.cancel)
     }

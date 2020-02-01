@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:VK App New.xcodeproj">
+   </FileRef>
 </Workspace>
