@@ -34,6 +34,10 @@ class VKLoginController: UIViewController {
         ]
         
         let request = URLRequest(url: components.url!)
+    webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [weak self] cookie in
+        cookie.forEach { self?.webView.configuration.websiteDataStore.httpCookieStore.delete($0) }
+            
+       }
         webView.load(request)
     }
 }

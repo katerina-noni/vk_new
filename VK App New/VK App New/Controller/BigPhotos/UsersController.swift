@@ -19,8 +19,11 @@ class UsersController: UITableViewController {
         }
     }
     private var user = [User]()
-    var filteredUsers = [Character: [User]]()
+    var filteredUsers: [User] = []
     var sortedUsers = [Character: [User]]()
+    var filteredFriends = [Character: [User]]()
+    var sections: [String] = []
+    var friendsInSections: [String: [User]] = [:]
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +36,11 @@ class UsersController: UITableViewController {
             guard let self = self else { return }
             switch result {
             case let .success(user):
-                guard !user.isEmpty else { return }
                 self.user = user
+                self.filteredUsers = self.user
                 self.sortedUsers = self.sort(user: user)
-                self.filteredUsers = self.sortedUsers
+                self.filteredFriends = self.sortedUsers
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -55,8 +59,13 @@ class UsersController: UITableViewController {
     private func sort(user: [User]) -> [Character: [User]] {
         var userDick = [Character: [User]]()
         
-        user.forEach { users in
-            guard let firstUser = users.fullName.first else { return }
+        user
+            .sorted { $0.lastName < $1.lastName }
+            .sorted { $0.firstName < $1.firstName }
+            .forEach { users in
+            guard let firstUser =
+                users.lastName.first ??
+                users.firstName.first else { return }
             if var thisCharUser = userDick[firstUser] {
                 thisCharUser.append(users)
                 userDick[firstUser] = thisCharUser
@@ -71,7 +80,7 @@ class UsersController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sortedUsers.keys.count
+        return sections.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -108,12 +117,48 @@ class UsersController: UITableViewController {
 
 extension UsersController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            filteredUsers = sortedUsers
-        } else {
-            filteredUsers = user.filter { ($0.fullName.lowercased() as AnyObject).contains(searchText.lowercased()) }
+        searchBarFilter(search: searchText)
+        searchBar.showsCancelButton = true
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBarFilter(search: "")
+    }
+    private func searchBarFilter (search text: String) {
+        guard !text.isEmpty else {
+            filteredFriends = sortedUsers
+            tableView.reloadData()
+            return
         }
-        sortedUsers = sort(user: filteredUsers)
+        filteredFriends.removeAll()
+        sortedUsers
+            .forEach({
+                userChar in
+                userChar.value
+                    .sorted { $0.fullName < $1.fullName }
+                    .forEach({ user in
+                        if
+                            user.fullName.lowercased()
+                                .contains(text.lowercased()) {
+                            guard let firstChar =
+                                user.fullName.first else
+                            { return }
+                            if var charUsers = filteredFriends[firstChar]
+                            {
+                                charUsers.append(user)
+                                filteredFriends[firstChar] = charUsers
+                            } else {
+                                filteredFriends[firstChar] = [user]
+                            }
+                        }
+                        
+                    })
+            })
         tableView.reloadData()
     }
 }
