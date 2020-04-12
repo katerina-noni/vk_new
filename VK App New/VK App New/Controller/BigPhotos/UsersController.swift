@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class UsersController: UITableViewController {
     
+    private var user: Result<User> = try! Realm(configuration: RealmProvider.deleteIfMigration).objects(User.self)
+    //Results<UsersResult> = try! Realm(configuration: RealmProvider.deleteIfMigration).objects(UsersResult.self)
     private let networkService = NetworkService(token: Session.access.token)
     
     @IBOutlet var userSearchBar: UISearchBar! {
@@ -36,7 +39,7 @@ class UsersController: UITableViewController {
             guard let self = self else { return }
             switch result {
             case let .success(user):
-                self.user = user
+//                self.user = user
                 self.filteredUsers = self.user
                 self.sortedUsers = self.sort(user: user)
                 self.filteredFriends = self.sortedUsers

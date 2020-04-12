@@ -8,11 +8,11 @@ import Foundation
 import RealmSwift
 
 class RealmGroups: Object {
-    @objc dynamic var id: Int = 12
-    @objc dynamic var name: String = ""
+    @objc dynamic var id: String = ""
+    @objc dynamic var name: с = ""
     @objc dynamic var image: String = ""
     
-    convenience init(id: Int, name: String, image: String) {
+    convenience init(id: String, name: String, image: String) {
         self.init()
         
         self.id = id
